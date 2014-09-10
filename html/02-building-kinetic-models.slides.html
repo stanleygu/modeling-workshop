@@ -1730,6 +1730,10 @@ In&nbsp;[1]:
 <span class="o">%</span><span class="k">install_ext</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stanleygu</span><span class="o">/</span><span class="n">ipython</span><span class="o">-</span><span class="n">diags</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">diagmagic</span><span class="o">.</span><span class="n">py</span>
 <span class="o">%</span><span class="k">reload_ext</span> <span class="n">diagmagic</span>
 <span class="o">%</span><span class="k">setdiagsvg</span>
+<span class="c"># show plots inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> <span class="n">inline</span>
+<span class="c"># higher resolution graphics</span>
+<span class="o">%</span><span class="k">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span><span class="o">=</span><span class="s">&#39;retina&#39;</span>
 </pre></div>
 
 </div>
@@ -2015,9 +2019,20 @@ Installed diagmagic.py. To use it, type:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Represented by differential equations:</p>
-<p>$$\frac{dS}{dt} = Nv(S, p)$$</p>
-<p>Where $S$ is the vector of species, $N$ is the stoichiometry matrix, $v$ is the rate vector, and $p$ a vector of parameters that can influence the system.</p>
+<p>Represented by differential equations</p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Which look something like:</p>
+<p>$$\frac{dS_1}{dt} = f(S_1, S_2)$$</p>
+<p>$$\frac{dS_2}{dt} = f(S_1, S_2)$$   </p>
 </div>
 </div>
 </div>
@@ -2147,23 +2162,46 @@ In&nbsp;[2]:
 </div>
 
 </div>
-    </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p><a href="http://tellurium.analogmachine.org/">Tellurium</a> contains a combination of libraries to define, simulate, and analyze models.</p>
-</li>
-<li><p>Models are defined using the <a href="http://antimony.sourceforge.net/">Antimony</a> syntax as multi-line Python strings</p>
-</li>
-<li><p>Models are loaded for simulation and analysis using <a href="http://libroadrunner.org/">RoadRunner</a>.</p>
-</li>
+<li><a href="http://tellurium.analogmachine.org/">Tellurium</a> contains a combination of libraries to define, simulate, and analyze models.</li>
 </ul>
 </div>
 </div>
-</div></section><section>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Models are defined using the <a href="http://antimony.sourceforge.net/">Antimony</a> syntax as multi-line Python strings</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Models are loaded for simulation and analysis using <a href="http://libroadrunner.org/">RoadRunner</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+    </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2177,7 +2215,7 @@ In&nbsp;[2]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[2]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2223,7 +2261,7 @@ In&nbsp;[3]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[3]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2247,7 +2285,31 @@ In&nbsp;[4]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Model is a multi-line string in Antimony (a more concise model definition format)</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>Single reaction defined using <code>Reactant -&gt; Product</code> syntax</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>Reaction proceeds at rate <code>k1*S1</code></li>
 </ul>
 </div>
@@ -2299,7 +2361,7 @@ In&nbsp;[4]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2383,8 +2445,8 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The results are in multi-dimensional array. </p>
-<p>Columns: <code>time</code>, <code>S1</code>, and <code>S2</code>.</p>
-<pre><code>[[  0.          10.           0.        ]
+<pre><code>  time          S1            S2
+[[  0.          10.           0.        ]
  [  4.           6.70319733   3.29680267]
  [  8.           4.49328603   5.50671397]
  [ 12.           3.01197194   6.98802806]
@@ -2427,12 +2489,7 @@ In&nbsp;[7]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c"># show plots inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> <span class="n">inline</span>
-<span class="c"># higher resolution graphics</span>
-<span class="o">%</span><span class="k">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span><span class="o">=</span><span class="s">&#39;retina&#39;</span>
-
-<span class="n">te</span><span class="o">.</span><span class="n">plotWithLegend</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">te</span><span class="o">.</span><span class="n">plotWithLegend</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -3046,6 +3103,17 @@ height=252
     </div></section>
     </section><section>
     <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Towards-More-Complex-Models">Towards More Complex Models<a class="anchor-link" href="#Towards-More-Complex-Models">&#182;</a></h1>
+</div>
+</div>
+</div>
+</section><section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -4115,43 +4183,42 @@ height=252
 </div>
 </div>
 </div>
-
+<div class="fragment">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can come up with these relationships:</p>
-<p>$$ \frac{dS_1}{dt} = 0 = -k_1S_1 + k_2S_2 $$
-$$ \frac{dS_2}{dt} = 0 = k_1S_1 - k_2S_2 $$</p>
-<p>$$ S_1 + S_2 = S_{total} $$</p>
-<p>Which, through substitution, we can come up with the equilbrium values of S1 and S2.</p>
-<p>$$ S_1 = \frac{k_2S_{total}}{k_1 + k_2} $$
-$$ S_2 = \frac{k_1S_{total}}{k_1 + k_2} $$</p>
+<p>$$0 = \frac{dS_1}{dt} = -k_1S_1 + k_2S_2$$</p>
+<p>$$0 = \frac{dS_2}{dt} = k_1S_1 - k_2S_2$$</p>
+<p>$$S_1 + S_2 = S_{total}$$</p>
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
+</div>
+    </div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Towards-More-Complex-Models">Towards More Complex Models<a class="anchor-link" href="#Towards-More-Complex-Models">&#182;</a></h1>
+<p>Through substitution, we can come up with the equilbrium values of S1 and S2.</p>
+<p>$$ S_1 = \frac{k_2S_{total}}{k_1 + k_2} $$</p>
+<p>$$ S_2 = \frac{k_1S_{total}}{k_1 + k_2} $$</p>
 </div>
 </div>
 </div>
-</section><section>
+    </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Often times chemical species may have formation and degradation terms. </p>
-<p>These can be represented with open ended arrows as follows:</p>
+<h1 id="formation-and-degradation-terms">Formation and degradation terms</h1>
+<p>Represented with open ended arrows</p>
 </div>
 </div>
 </div>
@@ -4776,7 +4843,7 @@ height=252
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To make things easy, Tellurium provides functions for analyzing model behavior, including steady state.</p>
+<h2 id="tellurium-provides-functions-for-analyzing-model-behavior">Tellurium provides functions for analyzing model behavior</h2>
 </div>
 </div>
 </div>
@@ -4813,7 +4880,89 @@ array([ 5.        ,  0.90909091,  0.65789474,  5.        ])
 </div>
 </div>
 
-</div></section>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="inspecting-the-model-state">Inspecting the model state</h1>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[8]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">r</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">S1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[8]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+0.18316274678853836
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">r</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">k1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[9]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+0.1
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
     </section><section>
     <section>
     
