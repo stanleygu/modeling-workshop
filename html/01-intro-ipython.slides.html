@@ -1728,6 +1728,16 @@ div.output_prompt {
 <h1 id="introduction-to-python-and-ipython-notebook">Introduction to Python and IPython Notebook</h1>
 </div>
 </div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" alt="logo"></p>
+</div>
+</div>
 </div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
@@ -1735,22 +1745,36 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Python</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>General-purpose programming language</p>
-<p>Many active and useful scientific computing libraries</p>
-<p>Similar to MATLAB, but without the licensing fees and also widely used outside scientific computing domain</p>
+</div>
+</div>
+</div>
+    </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;Hello Python!&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Many active and useful scientific computing libraries
+<img src="http://tellurium.analogmachine.org/wp-content/uploads/2014/03/tellurium_banner_h31_w155_1.gif" alt="tellurium_logo">
+RoadRunner
+<img src="http://libroadrunner.org/wp-content/uploads/2013/11/libroadrunner_logo75_tan.png" alt="roadrunner_logo"></p>
 </div>
 </div>
 </div>
@@ -1761,13 +1785,22 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>IPython Notebook</li>
-</ul>
+<p>Similar to MATLAB, but without the licensing fees and also widely used outside scientific computing domain
+<img width="50" src="http://www.computerhope.com/jargon/m/matlab-logo.jpg"></img></p>
 </div>
 </div>
 </div>
-    </div><div class="fragment">
+    </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://i.imgur.com/OeHPrMd.png" alt="ipython_notebook_logo"></p>
+</div>
+</div>
+</div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1775,9 +1808,38 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>web-based interactive computing system</p>
-<p>documents can include live code, narrative text, LaTeX equations, HTML, images and video</p>
-<p>full record of a computation and its results and can be shared via email, <a href="dropbox.com">Dropbox</a>, version control systems (like <a href="http://git-scm.com/">git</a>), or <a href="nbviewer.ipython.org">nbviewer.ipython.org</a></p>
-<p>It can be even be used to create a slide show like this one!</p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://ipython.org/_static/sloangrant/9_home_fperez_prof_grants_1207-sloan-ipython_proposal_fig_ipython-notebook-specgram.png" alt="ipython_notebook_screenshot"></p>
+</div>
+</div>
+</div>
+    </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Documents can include live code, narrative text, LaTeX equations, HTML, images and video</p>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>full record of a computation and its results and can be shared via email, <a href="dropbox.com">Dropbox</a>, version control systems (like <a href="http://git-scm.com/">git</a>), or published online <a href="nbviewer.ipython.org">nbviewer.ipython.org</a></p>
 </div>
 </div>
 </div>
@@ -1790,40 +1852,63 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="typical-workflow-comparison">Typical Workflow Comparison</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Python/MATLAB Scripts</th>
-            <th>IPython Notebook</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1. Create new directory for experiment</td>
-            <td>1. Create new notebook for experiment</td>
-        </tr>
-        <tr>
-            <td>2. Create script for particular analysis</td>
-            <td>2. Create cell for particular analysis</td>
-        </tr>
-        <tr>
-            <td>3. Execute script, save textual output as text files and/or graphical figures. Maybe use a naming scheme to specify which output files belong to a particular analysis.</td>
-            <td>3. Execute cell, both textual and graphical output are displayed next to cell.</td>
-        </tr>
-        <tr>
-            <td>4. Inspect output, maybe show colleagues, take notes in separate text file. Consider new changes.</td>
-            <td>4. Inspect output, maybe show colleagues, take notes in new cell. Consider new changes.</td>
-        </tr>
-        <tr>
-            <td>5. Repeat from Step 2.</td>
-            <td>5. Repeat from Step 2.</td>
-        </tr>
-    </tbody>
-</table>
+<h1 id="comparison-of-workflows">Comparison of Workflows</h1>
+<h2 id="-span-style-color-steelblue-python-matlab-scripts-span-vs-span-style-color-green-ipython-notebook-span-"><span style="color:SteelBlue">Python/MATLAB Scripts</span> vs. <span style="color:green">IPython Notebook</span></h2>
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Create new <strong>(<span style="color:SteelBlue">directory</span> | <span style="color:green">notebook</span>)</strong> for experiment</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Create <strong>(<span style="color:SteelBlue">script</span> | <span style="color:green">cell</span>)</strong> for particular analysis</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Execute code, save outputs <strong>(<span style="color:SteelBlue">as multiple files</span> | <span style="color:green">alongside code</span>)</strong></li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Consider new changes and repeat</li>
+</ul>
+</div>
+</div>
+</div>
+    </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1831,16 +1916,96 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>May appear similar but...</p>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Notebook single file reduces overheard of needing to manage and remember the purpose of multiple files <ul>
-<li>No more need to have files named: <code>MyExpFigure_1_alpha_8_beta_23_p_0.005.png</code></li>
+<li><span style="color:green">Notebook single file</span> reduces overheard of needing to manage and remember the purpose of multiple files</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>e.g. <code>MyExpFigure_1_alpha_8_beta_23_p_0.005.png</code></li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><span style="color:green">Notebooks easier to share</span> (can also be exported into different formats)</li>
+</ul>
+</div>
+</div>
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="installing-ipython">Installing IPython</h1>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>For modeling workshop attendees... no installation necessary<ul>
+<li>Hosted instance with link emailed to you</li>
 </ul>
 </li>
-<li>Notebooks easier to share (Can also be exported into difference presentation formats)</li>
 </ul>
 </div>
 </div>
-</div></section>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Local installation<ul>
+<li><a href="https://docs.google.com/file/d/0B5-7DZt8onO5OFFYSThxUFJRY2s/edit?usp=drive_web">Windows</a></li>
+<li><a href="">Mac</a><ul>
+<li><code>!../MacOS/python lib/python2.7/IPython notebook --notebook-dir=&quot;/Users/user&quot;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -1859,9 +2024,39 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="code-cells">Code cells</h2>
+<h2 id="executing-code">Executing Code</h2>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Run a code cell <code>shift-enter</code> or pressing the <button><i class="icon-play"></i></button> above. </p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>control-enter</code> executes the cell and keeps the current cell selected.</p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Create new code cells through double-clicking below the bottom-most cell, or through <button><i class="icon-plus"></i></button> in the menu.</p>
 </div>
 </div>
@@ -1874,13 +2069,35 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="cells-not-executing-or-other-weird-issues-">Cells not executing or other weird issues?</h2>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Restart the kernel <button><i class="icon-repeat"></i></button></li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>Refresh browser window</li>
 </ul>
 </div>
 </div>
-</div></section>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -2114,7 +2331,7 @@ In&nbsp;[5]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="modules">Modules</h3>
-<p>Importing additional functionality from Python modules is done using the <code>import</code> statement. The available Python modules depend on the underlying system that is running the kernel.</p>
+<p>Bringing in functions from modules is done using the <code>import</code> statement.</p>
 </div>
 </div>
 </div>
@@ -2152,35 +2369,15 @@ In&nbsp;[6]:
 </div>
 </div>
 
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="customization-side-by-side-ipython-notebook-output">Customization: Side-by-side IPython Notebook Output</h1>
-<p>For side-by-side output, add this to a new cell (<em>Note: Deleting this cell will restore the default layout</em>):</p>
+<p>The available Python modules depend on the underlying system that is running the kernel.</p>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="o">%%</span><span class="k">html</span>
-<span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span><span class="n">div</span><span class="o">.</span><span class="n">cell</span><span class="p">{</span><span class="n">box</span><span class="o">-</span><span class="n">orient</span><span class="p">:</span><span class="n">horizontal</span><span class="p">;</span><span class="n">flex</span><span class="o">-</span><span class="n">direction</span><span class="p">:</span><span class="n">row</span><span class="p">;}</span><span class="n">div</span><span class="o">.</span><span class="n">cell</span> <span class="o">*</span><span class="p">{</span><span class="n">width</span><span class="p">:</span><span class="mi">100</span><span class="o">%</span><span class="p">;}</span><span class="n">div</span><span class="o">.</span><span class="n">prompt</span><span class="p">{</span><span class="n">width</span><span class="p">:</span><span class="mi">80</span><span class="n">px</span><span class="p">;}</span><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div></section>
     </section><section>
     <section>
