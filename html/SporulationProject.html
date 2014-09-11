@@ -1924,16 +1924,18 @@ dna1: --P0--G0--P1--G1--
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo101')">ANSWER</a>: </p>
 <div id='foo101' style="display: none;">
-// X1 is the input signal
+<pre>
+    // X1 is the input signal
 
     // Must precede other assignments
     dna1: --P0--G0--P1--G1--
 
     // Z1 = FFL-I1(X1). P0/G0, P1/G1.
     //   Y1
-    P0 = Vmax0<em>X1^6/(1 + a1</em>X1^6);
+    P0 = Vmax0*X1^6/(1 + a1*X1^6);
     G0: -&gt; Y1;
     Y1 -&gt; ; gamma_0*Y1  // Y1 degrades
+</pre>
 </div>
 </div>
 </div>
@@ -1954,6 +1956,7 @@ dna1: --P0--G0--P1--G1--
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo011')">ANSWER</a>: </p>
 <div id='foo011' style="display: none;">
+<pre>
 import numpy
 import tellurium as te
 
@@ -1965,9 +1968,9 @@ dna1: --P0--G0--
 
 
 //   Y1
-P0 = Vmax0<em>X1/(1 + X1);
+P0 = Vmax0*X1/(1 + X1);
 G0: -&gt; Y1;
-Y1 -&gt; ; gamma_0</em>Y1  // Y1 degrades
+Y1 -&gt; ; gamma_0*Y1  // Y1 degrades
 
 gamma_0 = 0.1;
 Vmax0 = 5;
@@ -1979,6 +1982,7 @@ at (time &gt;5): X1 = 5
 r = te.loadAntimonyModel(antStr)
 model = r.simulate(0, 60, 500)
 te.plotWithLegend(r, numpy.vstack ((model)))
+</pre>
 </div>
 </div>
 </div>
@@ -2032,7 +2036,9 @@ Change the model for P0.
 <p><a onclick="toggle_visibility('foo200')">ANSWER</a>: </p>
 <div id='foo200' style="display: none;">
 We make the response time faster by raising the input signal to a power. For example: 
+<pre>
     P0 = Vmax0*X1^6/(1 + X1^6);
+</pre>
 Update the model in the cell below and run it.
 </div>
 </div>
@@ -2066,7 +2072,7 @@ we use,
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo001')">ANSWER</a>: </p>
 <div id='foo001' style="display: none;">
-
+<pre>
 import numpy
 import tellurium as te
 
@@ -2078,12 +2084,12 @@ dna1: --P0--G0--P0p--G0p--
 
 
 //   Y1
-P0 = Vmax0<em>X1^6/(1 + X1^6);
+P0 = Vmax0*X1^6/(1 + X1^6);
 G0: -&gt; Y1;
-Y1 -&gt; ; gamma_0</em>Y1  // Y1 degrades
+Y1 -&gt; ; gamma_0*Y1  // Y1 degrades
 
 //   Y1p with a scale factor
-P0p = Vmax0<em>X1^6/(1 + a1</em>X1^6);
+P0p = Vmax0*X1^6/(1 + a1*X1^6);
 G0p: -&gt; Y1p;
 Y1p -&gt; ; gamma_0*Y1p  // Y1 degrades
 
@@ -2098,7 +2104,7 @@ at (time &gt;5): X1 = 5
 r = te.loadAntimonyModel(antStr)
 model = r.simulate(0, 60, 500)
 te.plotWithLegend(r, numpy.vstack ((model)))
-
+</pre>
 </div>
 </div>
 </div>
@@ -2133,6 +2139,7 @@ Exponents and multiplication constants are used to scale and shape the signal.</
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo0010001')">ANSWER</a>: </p>
 <div id='foo0010001' style="display: none;">
+<pre>
 import numpy
 import tellurium as te
 
@@ -2146,14 +2153,14 @@ dna1: --P0--G0--P1--G1--
 
 // Z1 = FFL-I1(X1). P0/G0, P1/G1.
 //   Y1
-P0 = Vmax0<em>X1^6/(1 + a1</em>X1^6);
+P0 = Vmax0*X1^6/(1 + a1*X1^6);
 G0: -&gt; Y1;
-Y1 -&gt; ; gamma_0<em>Y1  // Y1 degrades
+Y1 -&gt; ; gamma_0*Y1  // Y1 degrades
 
 //  Z1 = X1 AND NOT Y1
-P1 = Vmax1</em>b1<em>X1/(1 + b1</em>X1 + b2<em>Y1 + b3</em>X1<em>Y1^4);
+P1 = Vmax1*b1*X1/(1 + b1*X1 + b2*Y1 + b3*X1*Y1^4);
 G1: -&gt; Z1;
-Z1 -&gt; ; gamma_1</em>Z1  // Z1 degraes
+Z1 -&gt; ; gamma_1*Z1  // Z1 degraes
 
 a1 = 10; b1 = 0.1; b2 = 0.1; b3 = 0.1;
 gamma_0 = 0.1; gamma_1 = 0.1
@@ -2166,6 +2173,7 @@ at (time &gt;5): X1 = 5
 r = te.loadAntimonyModel(antStr)
 model = r.simulate(0, 60, 500)
 te.plotWithLegend(r, numpy.vstack ((model)))
+</pre>
 </div>
 </div>
 </div>
@@ -2201,6 +2209,7 @@ te.plotWithLegend(r, numpy.vstack ((model)))
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo02001')">ANSWER</a>: </p>
 <div id='foo02001' style="display: none;">
+<pre>
 antStr_Y1 = &#39;&#39;&#39;
 
 // X1 is the input signal
@@ -2211,9 +2220,9 @@ dna1: --P0--G0--P1--G1--
 
 // Z1 = FFL-I1(X1). P0/G0, P1/G1.
 //   Y1
-P0 = Vmax0<em>X1^6/(1 + a1</em>X1^6);
+P0 = Vmax0*X1^6/(1 + a1*X1^6);
 G0: -&gt; Y1;
-Y1 -&gt; ; gamma_0<em>Y1  // Y1 degrades
+Y1 -&gt; ; gamma_0*Y1  // Y1 degrades
 
 a1 = 10;
 Vmax0 = 5;
@@ -2224,9 +2233,9 @@ X1 = 0; Y1 = 0;
 antStr_Z1 = &#39;&#39;&#39;
 
 //  Z1 = X1 AND NOT Y1
-P1 = Vmax1</em>b1<em>X1/(1 + b1</em>X1 + b2<em>Y1 + b3</em>X1<em>Y1^4);
+P1 = Vmax1*b1*X1/(1 + b1*X1 + b2*Y1 + b3*X1*Y1^4);
 G1: -&gt; Z1;
-Z1 -&gt; ; gamma_1</em>Z1  // Z1 degraes
+Z1 -&gt; ; gamma_1*Z1  // Z1 degraes
 
 b1 = 0.1; b2 = 0.1; b3 = 0.1;
 gamma_0 = 0.1; gamma_1 = 0.1
@@ -2243,6 +2252,7 @@ antStr = antStr_Y1 + antStr_Z1
 r = te.loadAntimonyModel(antStr)
 model = r.simulate(0, 60, 500)
 te.plotWithLegend(r, numpy.vstack ((model)))
+</pre>
 </div>
 </div>
 </div>
@@ -2280,7 +2290,9 @@ te.plotWithLegend(r, numpy.vstack ((model)))</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo022')">ANSWER for antStr_dna</a>: </p>
 <div id='foo022' style="display: none;">
+<pre>
 antStr_dna = &#39;dna1: --P0--G0--P1--G1--&#39;
+</pre>
 </div>
 </div>
 </div>
@@ -2292,10 +2304,11 @@ antStr_dna = &#39;dna1: --P0--G0--P1--G1--&#39;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo023')">ANSWER for antStr_Y1</a>: </p>
 <div id='foo023' style="display: none;">
+<pre>
 antStr_Y1 = &#39;&#39;&#39;
 
 // Y1
-P0 = Vmax0<em>X1^6/(1 + a1</em>X1^6);
+P0 = Vmax0*X1^6/(1 + a1*X1^6);
 G0: -&gt; Y1;
 Y1 -&gt; ; gamma_0*Y1  // Y1 degrades
 
@@ -2303,6 +2316,7 @@ a1 = 10;
 Vmax0 = 5;
 X1 = 0; Y1 = 0;
 &#39;&#39;&#39;
+</pre>
 </div>
 </div>
 </div>
@@ -2313,11 +2327,12 @@ X1 = 0; Y1 = 0;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a onclick="toggle_visibility('foo024')">ANSWER for antStr_Z1</a>: </p>
-<div id='foo023' style="display: none;">
+<div id='foo024' style="display: none;">
+<pre>
 antStr_Z1 = &#39;&#39;&#39;
 
 //  Z1 = X1 AND NOT Y1
-P1 = Vmax1<em>b1</em>X1/(1 + b1<em>X1 + b2</em>Y1 + b3<em>X1</em>Y1^4);
+P1 = Vmax1*b1*X1/(1 + b1*X1 + b2*Y1 + b3*X1*Y1^4);
 G1: -&gt; Z1;
 Z1 -&gt; ; gamma_1*Z1  // Z1 degraes
 
@@ -2326,6 +2341,7 @@ gamma_0 = 0.1; gamma_1 = 0.1
 Vmax1 = 12;
 Z1 = 0;
 &#39;&#39;&#39;
+</pre>
 </div>
 </div>
 </div>
@@ -2335,11 +2351,13 @@ Z1 = 0;
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a onclick="toggle_visibility('foo023')">ANSWER for antStr_ev</a>: </p>
-<div id='foo023' style="display: none;">
+<p><a onclick="toggle_visibility('foo025')">ANSWER for antStr_ev</a>: </p>
+<div id='foo025' style="display: none;">
+<pre>
 antStr_ev = &#39;&#39;&#39;
 at (time &gt;5): X1 = 5
 &#39;&#39;&#39;
+</pre>
 </div>
 </div>
 </div>
@@ -2374,50 +2392,53 @@ To express X2, we&#39;ll need another promoter and gene, and we&#39;ll need code
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a onclick="toggle_visibility('foo300')">ANSWER antStr_dna</a>: </p>
-<div id='foo300' style="display: none;">
-<pre>
-antStr_dna = &#39;&#39;&#39;
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">antStr_dna</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
 
-dna1: --P0--G0--P1--G1--P2--G2--
+<span class="s">dna1: --P0--G0--P1--G1--P2--G2--</span>
 
-&#39;&#39;&#39;
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a onclick="toggle_visibility('foo301')">ANSWER antStr_X2</a>: </p>
-<div id='foo301' style="display: none;">
-<pre>
-antStr_X2 = &#39;&#39;&#39;
-
-// X2 = X1 AND Y1. P2/G2.
-P2numr = Vmax2<em>X1^10</em>Y1^10;
-P2denom = 1 + c1<em>X1^10 + c2</em>Y1^10 + c3<em>X1</em>Y1^10;
-P2 = P2numr / P2denom;
-P2 = Vmax2<em>X1^10</em>Y1^10/(1 + c1<em>X1^10 + c2</em>Y1^10 + c3<em>X1</em>Y1^10);
-G2: -&gt; X2;
-X2  -&gt; ; gamma_2*X2
-
-c1 = 4.5; c2 = 15; c3 = 10.95;
-gamma_2 = 2
-Vmax2 = 0.00008;
-X2 = 0;
-&#39;&#39;&#39;
+<span class="s">&#39;&#39;&#39;</span>
 </pre></div>
+
 </div>
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">antStr_X2</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
+
+<span class="s">// X2 = X1 AND Y1. P2/G2.</span>
+<span class="s">P2numr = Vmax2*X1^10*Y1^10;</span>
+<span class="s">P2denom = 1 + c1*X1^10 + c2*Y1^10 + c3*X1*Y1^10;</span>
+<span class="s">P2 = P2numr / P2denom;</span>
+<span class="s">P2 = Vmax2*X1^10*Y1^10/(1 + c1*X1^10 + c2*Y1^10 + c3*X1*Y1^10);</span>
+<span class="s">G2: -&gt; X2;</span>
+<span class="s">X2  -&gt; ; gamma_2*X2</span>
+
+<span class="s">c1 = 4.5; c2 = 15; c3 = 10.95;</span>
+<span class="s">gamma_2 = 2</span>
+<span class="s">Vmax2 = 0.00008;</span>
+<span class="s">X2 = 0;</span>
+<span class="s">&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2479,12 +2500,13 @@ Two genes are required. One expresses Y2 and the second expresses Z2 = X2 AND NO
 <p><a onclick="toggle_visibility('foo5')">ANSWER</a>: </p>
 <div id='foo5' style="display: none;">
 <pre>
-
-    P4 = Vmax4<em>d1</em>X2^4/(1 + d1<em>X2^4 + d2</em>Y2^4 + d3<em>X2^4</em>Y2^4);
+<code>
+    P4 = Vmax4 * d1 * X2^4/(1 + d1*X2^4 + d2*Y2^4 + d3*X2^4*Y2^4);
 
     G4: -&gt; Z2;
 
     Z2 -&gt; ; gamma_4*Z2
+</code>
 </pre>
 </div>
 </div>
@@ -2499,49 +2521,62 @@ Two genes are required. One expresses Y2 and the second expresses Z2 = X2 AND NO
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a onclick="toggle_visibility('foo500')">ANSWER</a>: </p>
-<div id='foo500' style="display: none;">
-<pre>
-antStr_dna = &#39;&#39;&#39;
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">antStr_dna</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
 
-dna1: --P0--G0--P1--G1--P2--G2--P3--G3--P4--G4--
+<span class="s">dna1: --P0--G0--P1--G1--P2--G2--P3--G3--P4--G4--</span>
 
-&#39;&#39;&#39;
+<span class="s">&#39;&#39;&#39;</span>
+</pre></div>
 
-antStr_Z2 = &#39;&#39;&#39;
-
-// Y2. P3/G3.
-P3 = Vmax3<em>X2^4/(1 + f1</em>X2^4);
-G3: -&gt; Y2;
-Y2 -&gt; ; gamma_3<em>Y2
-
-f1 = 5;
-gamma_3 = 0.75; 
-Vmax3 = 22; 
-Y2 = 0; 
-
-
-// Z2 = X2 AND NOT Y2. P4/G4.
-P4 = Vmax4</em>d1<em>X2^4/(1 + d1</em>X2^4 + d2<em>Y2^4 + d3</em>X2^4<em>Y2^4);
-P4 = Vmax4</em>d1<em>X2^4/(1 + d1</em>X2^4 + d2<em>Y2^4 + d3</em>X2^4<em>Y2^4);
-G4: -&gt; Z2;
-Z2 -&gt; ; gamma_4</em>Z2
-
-d1 = 1; d2 = 0.1; d3 = 5;
-gamma_4 = 0.6;
-Vmax4 = 140;
-Z2 = 0;
-&#39;&#39;&#39;
-
-</pre>
 </div>
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">antStr_Z2</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
+
+<span class="s">// Y2. P3/G3.</span>
+<span class="s">P3 = Vmax3*X2^4/(1 + f1*X2^4);</span>
+<span class="s">G3: -&gt; Y2;</span>
+<span class="s">Y2 -&gt; ; gamma_3*Y2</span>
+
+<span class="s">f1 = 5;</span>
+<span class="s">gamma_3 = 0.75; </span>
+<span class="s">Vmax3 = 22; </span>
+<span class="s">Y2 = 0; </span>
+
+
+<span class="s">// Z2 = X2 AND NOT Y2. P4/G4.</span>
+<span class="s">P4 = Vmax4*d1*X2^4/(1 + d1*X2^4 + d2*Y2^4 + d3*X2^4*Y2^4);</span>
+<span class="s">P4 = Vmax4*d1*X2^4/(1 + d1*X2^4 + d2*Y2^4 + d3*X2^4*Y2^4);</span>
+<span class="s">G4: -&gt; Z2;</span>
+<span class="s">Z2 -&gt; ; gamma_4*Z2</span>
+
+<span class="s">d1 = 1; d2 = 0.1; d3 = 5;</span>
+<span class="s">gamma_4 = 0.6;</span>
+<span class="s">Vmax4 = 140;</span>
+<span class="s">Z2 = 0;</span>
+<span class="s">&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2573,38 +2608,51 @@ In&nbsp;[]:
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a onclick="toggle_visibility('foo502')">ANSWER</a>: </p>
-<div id='foo502' style="display: none;">
-<pre>
-antStr_dna = &#39;&#39;&#39;
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">antStr_dna</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
 
-dna1: --P0--G0--P1--G1--P2--G2--P3--G3--P4--G4--P5--G5--
+<span class="s">dna1: --P0--G0--P1--G1--P2--G2--P3--G3--P4--G4--P5--G5--</span>
 
-&#39;&#39;&#39;
+<span class="s">&#39;&#39;&#39;</span>
+</pre></div>
 
-antStr_Z3 = &#39;&#39;&#39;
-
-// Z3 = X2 AND Y2
-P5 = Vmax5<em>X2^10</em>Y2^10/(1 + g1<em>X2^10 + g2</em>Y2^10 + g3<em>X2</em>Y2^10);
-G5: -&gt; Z3;
-Z3 -&gt; ; gamma_5*Z3
-
-g1 = 20; g2 = 25; g3 = 10.95;
-gamma_5 = 2;
-Vmax5 = 0.00006;
-Z3 = 0;
-
-&#39;&#39;&#39;
-
-</pre>
 </div>
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">antStr_Z3</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
+
+<span class="s">// Z3 = X2 AND Y2</span>
+<span class="s">P5 = Vmax5*X2^10*Y2^10/(1 + g1*X2^10 + g2*Y2^10 + g3*X2*Y2^10);</span>
+<span class="s">G5: -&gt; Z3;</span>
+<span class="s">Z3 -&gt; ; gamma_5*Z3</span>
+
+<span class="s">g1 = 20; g2 = 25; g3 = 10.95;</span>
+<span class="s">gamma_5 = 2;</span>
+<span class="s">Vmax5 = 0.00006;</span>
+<span class="s">Z3 = 0;</span>
+
+<span class="s">&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2637,93 +2685,92 @@ In&nbsp;[]:
 </div>
 </div>
 
-<div class="cell border-box-sizing text_cell rendered">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
+In&nbsp;[]:
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a onclick="toggle_visibility('foo50001')">ANSWER</a>: </p>
-<div id='foo50001' style="display: none;">
-<pre>
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">tellurium</span> <span class="kn">as</span> <span class="nn">te</span>
 
-import numpy
-import tellurium as te
+<span class="n">antStr</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
 
-antStr = &#39;&#39;&#39;
+<span class="s">// X1 is the input signal</span>
 
-// X1 is the input signal
-
-// Must precede other assignments
-dna1: --P0--G0--P1--G1--P2--G2--P3--G3--P4--G4--P5--G5--
+<span class="s">// Must precede other assignments</span>
+<span class="s">dna1: --P0--G0--P1--G1--P2--G2--P3--G3--P4--G4--P5--G5--</span>
 
 
-// Z1 = FFL-I1(X1). P0/G0, P1/G1.
-//   Y1
-P0 = Vmax0<em>X1^6/(1 + a1</em>X1^6);
-G0: -&gt; Y1;
-Y1 -&gt; ; gamma_0<em>Y1  // Y1 degrades
+<span class="s">// Z1 = FFL-I1(X1). P0/G0, P1/G1.</span>
+<span class="s">//   Y1</span>
+<span class="s">P0 = Vmax0*X1^6/(1 + a1*X1^6);</span>
+<span class="s">G0: -&gt; Y1;</span>
+<span class="s">Y1 -&gt; ; gamma_0*Y1  // Y1 degrades</span>
 
-//  Z1 = X1 AND NOT Y1
-P1 = Vmax1</em>b1<em>X1/(1 + b1</em>X1 + b2<em>Y1 + b3</em>X1^1<em>Y1^4);
-G1: -&gt; Z1;
-Z1 -&gt; ; gamma_1</em>Z1  // Z1 degraes
+<span class="s">//  Z1 = X1 AND NOT Y1</span>
+<span class="s">P1 = Vmax1*b1*X1/(1 + b1*X1 + b2*Y1 + b3*X1^1*Y1^4);</span>
+<span class="s">G1: -&gt; Z1;</span>
+<span class="s">Z1 -&gt; ; gamma_1*Z1  // Z1 degraes</span>
 
-a1 = 10; b1 = 0.1; b2 = 0.1; b3 = 0.1;
-gamma_0 = 0.1; gamma_1 = 0.1
-Vmax0 = 5; Vmax1 = 12;
-X1 = 0; Y1 = 0; Z1 = 0;
-
-
-// X2 = X1 AND Y1. P2/G2.
-P2 = Vmax2<em>X1^10</em>Y1^10/(1 + c1<em>X1^10 + c2</em>Y1^10 + c3<em>X1</em>Y1^10);
-G2: -&gt; X2;
-X2 -&gt; ; gamma_2<em>X2
-
-c1 = 4.5; c2 = 15; c3 = 10.95;
-gamma_2 = 2
-Vmax2 = 0.00008;
-X2 = 0;
+<span class="s">a1 = 10; b1 = 0.1; b2 = 0.1; b3 = 0.1;</span>
+<span class="s">gamma_0 = 0.1; gamma_1 = 0.1</span>
+<span class="s">Vmax0 = 5; Vmax1 = 12;</span>
+<span class="s">X1 = 0; Y1 = 0; Z1 = 0;</span>
 
 
-// Z2 = FFL-I1(X2). P3/G3, P4/G4.
-//   Y2
-P3 = Vmax3</em>X2^4/(1 + f1<em>X2^4);
-G3: -&gt; Y2;
-Y2 -&gt; ; gamma_3</em>Y2
+<span class="s">// X2 = X1 AND Y1. P2/G2.</span>
+<span class="s">P2 = Vmax2*X1^10*Y1^10/(1 + c1*X1^10 + c2*Y1^10 + c3*X1*Y1^10);</span>
+<span class="s">G2: -&gt; X2;</span>
+<span class="s">X2 -&gt; ; gamma_2*X2</span>
 
-//  Z2 = X2 AND NOT Y2
-P4 = Vmax4<em>d1</em>X2^4/(1 + d1<em>X2^4 + d2</em>Y2^4 + d3<em>X2^4</em>Y2^4);
-G4: -&gt; Z2;
-Z2 -&gt; ; gamma_4<em>Z2
-
-f1 = 5; d1 = 1; d2 = 0.1; d3 = 5;
-gamma_3 = 0.75; gamma_4 = 0.6;
-Vmax3 = 22; Vmax4 = 140;
-Y2 = 0; Z2 = 0;
+<span class="s">c1 = 4.5; c2 = 15; c3 = 10.95;</span>
+<span class="s">gamma_2 = 2</span>
+<span class="s">Vmax2 = 0.00008;</span>
+<span class="s">X2 = 0;</span>
 
 
-// Z3 = X2 AND Y2
-P5 = Vmax5</em>X2^10<em>Y2^10/(1 + g1</em>X2^10 + g2<em>Y2^10 + g3</em>X2<em>Y2^10);
-G5: -&gt; Z3;
-Z3 -&gt; ; gamma_5</em>Z3
+<span class="s">// Z2 = FFL-I1(X2). P3/G3, P4/G4.</span>
+<span class="s">//   Y2</span>
+<span class="s">P3 = Vmax3*X2^4/(1 + f1*X2^4);</span>
+<span class="s">G3: -&gt; Y2;</span>
+<span class="s">Y2 -&gt; ; gamma_3*Y2</span>
 
-g1 = 20; g2 = 25; g3 = 10.95;
-gamma_5 = 2;
-Vmax5 = 0.00006;
-Z3 = 0;
+<span class="s">//  Z2 = X2 AND NOT Y2</span>
+<span class="s">P4 = Vmax4*d1*X2^4/(1 + d1*X2^4 + d2*Y2^4 + d3*X2^4*Y2^4);</span>
+<span class="s">G4: -&gt; Z2;</span>
+<span class="s">Z2 -&gt; ; gamma_4*Z2</span>
 
-at (time &gt; 5): X1 = 5;
-&#39;&#39;&#39;
+<span class="s">f1 = 5; d1 = 1; d2 = 0.1; d3 = 5;</span>
+<span class="s">gamma_3 = 0.75; gamma_4 = 0.6;</span>
+<span class="s">Vmax3 = 22; Vmax4 = 140;</span>
+<span class="s">Y2 = 0; Z2 = 0;</span>
 
 
-r = te.loadAntimonyModel (antStr)
-model = r.simulate(0, 60, 500)
-te.plotWithLegend (r, numpy.vstack ((model)))
+<span class="s">// Z3 = X2 AND Y2</span>
+<span class="s">P5 = Vmax5*X2^10*Y2^10/(1 + g1*X2^10 + g2*Y2^10 + g3*X2*Y2^10);</span>
+<span class="s">G5: -&gt; Z3;</span>
+<span class="s">Z3 -&gt; ; gamma_5*Z3</span>
 
-</pre>
+<span class="s">g1 = 20; g2 = 25; g3 = 10.95;</span>
+<span class="s">gamma_5 = 2;</span>
+<span class="s">Vmax5 = 0.00006;</span>
+<span class="s">Z3 = 0;</span>
+
+<span class="s">at (time &gt; 5): X1 = 5;</span>
+<span class="s">&#39;&#39;&#39;</span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">loadAntimonyModel</span> <span class="p">(</span><span class="n">antStr</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">te</span><span class="o">.</span><span class="n">plotWithLegend</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">vstack</span> <span class="p">((</span><span class="n">model</span><span class="p">)))</span>
+</pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
     </div>
   </div>
