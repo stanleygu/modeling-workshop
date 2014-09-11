@@ -2007,7 +2007,7 @@ In&nbsp;[1]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Metabolism of Lactose</li>
-<li>Regulation of $beta$-galactosidase</li>
+<li>Regulation of $\beta$-galactosidase</li>
 </ol>
 </div>
 </div>
@@ -2042,6 +2042,17 @@ In&nbsp;[1]:
 </div>
 </div>
 </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://i.imgur.com/BXdT5ND.png" alt="lactose breakdown"></p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2679,7 +2690,7 @@ $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<pre><code>-&gt; bGal; (basalExpression * lac^n / (kd_lac + lac^n))
+<pre><code>-&gt; bGal; (V_max * lac^n / (kd_lac + lac^n))
                             ------------------------- Cooperativity
 </code></pre>
 </div>
@@ -2695,7 +2706,7 @@ In&nbsp;[3]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">bGalRegulation</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
-<span class="s">-&gt; bGal; (basalExpression * lac^n / (kd_lac + lac^n)) # Production of bGal</span>
+<span class="s">-&gt; bGal; (Vm_exp * lac^n / (kd_lac + lac^n)) # Production of bGal</span>
 <span class="s">bGal -&gt; ; k_deg * bGal # Degradation of bGal</span>
 
 <span class="s"># Species Initialization</span>
@@ -2705,7 +2716,7 @@ In&nbsp;[3]:
 <span class="s">k_deg = 1;</span>
 <span class="s">kd_lac = 1;</span>
 <span class="s">n = 4;</span>
-<span class="s">basalExpression = 1;</span>
+<span class="s">V_exp = 1;</span>
 
 <span class="s">at (time &gt;5): lac = 5</span>
 <span class="s">&#39;&#39;&#39;</span>
@@ -3065,7 +3076,7 @@ In&nbsp;[4]:
 <div class="highlight"><pre><span class="n">lacOperon</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;</span>
 <span class="s"># Break down of lactose into glucose and galactose</span>
 <span class="s">lac -&gt; glu + gal; (Vm_bGal * lac) / (km_bGal + lac) </span>
-<span class="s">-&gt; bGal; (basalExpression * lac^n / (kd_lac + lac^n)) # Production of bGal</span>
+<span class="s">-&gt; bGal; (Vm_exp * lac^n / (kd_lac + lac^n)) # Production of bGal</span>
 <span class="s">bGal -&gt; ; k_deg * bGal                                # Degradation of bGal</span>
 
 <span class="s"># Species Initialization</span>
@@ -3077,7 +3088,7 @@ In&nbsp;[4]:
 <span class="s">k_deg = 1;</span>
 <span class="s">kd_lac = 1;</span>
 <span class="s">n = 4;</span>
-<span class="s">basalExpression = 1;</span>
+<span class="s">Vm_exp = 1;</span>
 
 <span class="s">at (time &gt;5): lac = 5</span>
 <span class="s">&#39;&#39;&#39;</span>
